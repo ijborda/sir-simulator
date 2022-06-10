@@ -1,12 +1,34 @@
 // Use strict
 "use strict";
 
+let isInit = true;
+let myChart;
+showVal();
 plotSIR();
 
 const sliders = document.querySelectorAll('.slider');
 Array.from(sliders).forEach(slider => {
   slider.addEventListener('change', plotSIR);
 })
+
+Array.from(sliders).forEach(slider => {
+  slider.addEventListener('input', showVal);
+})
+
+function showVal() {
+    const sus = document.querySelector('#susceptible').value;
+    const inf = document.querySelector('#infected').value;
+    const rec = document.querySelector('#recovered').value;
+    const time = document.querySelector('#time').value;
+    const beta = document.querySelector('#beta').value;
+    const gamma = document.querySelector('#gamma').value;
+    document.querySelector('#susceptibleVal').innerHTML = (+sus).toLocaleString();
+    document.querySelector('#infectedVal').innerHTML = (+inf).toLocaleString();
+    document.querySelector('#recoveredVal').innerHTML = (+rec).toLocaleString();
+    document.querySelector('#timeVal').innerHTML = (+time).toLocaleString();
+    document.querySelector('#betaVal').innerHTML = beta;
+    document.querySelector('#gammaVal').innerHTML = gamma;
+}
 
 // function logVal() {
 //   const sus = document.querySelector('#susceptible').value;
@@ -19,7 +41,29 @@ Array.from(sliders).forEach(slider => {
 //   plotSIR(params);
 // }
 
+// async function updatePlotSIR() {
+//   const sus = document.querySelector('#susceptible').value;
+//   const inf = document.querySelector('#infected').value;
+//   const rec = document.querySelector('#recovered').value;
+//   const time = document.querySelector('#time').value;
+//   const beta = document.querySelector('#beta').value;
+//   const gamma = document.querySelector('#gamma').value;
+
+//   const url = `https://sir-epimodel-api.herokuapp.com/api/sir?s=${sus}&i=${inf}&r=${rec}&b=${beta}&g=${gamma}&t=${time}`;
+//   const res = await fetch(url);
+//   const sir = await res.json();
+
+//   myLineChart.data.datasets[0].data[2] = 50; // Would update the first dataset's value of 'March' to be 50
+//   myLineChart.update();
+// }
+
 async function plotSIR() {
+
+  if (!isInit) {
+    myChart.destroy();
+  } else {
+    isInit = false
+  }
 
   const sus = document.querySelector('#susceptible').value;
   const inf = document.querySelector('#infected').value;
@@ -94,7 +138,8 @@ async function plotSIR() {
           title: {
             display: true,
             text: 'Number of Individuals'
-          }
+          },
+          max: 10000000
         },
         x: {
           title: {
@@ -106,6 +151,6 @@ async function plotSIR() {
     }
   }
 
-  const myChart = new Chart(ctx, config);
-  
+  myChart = new Chart(ctx, config);
+
 }
