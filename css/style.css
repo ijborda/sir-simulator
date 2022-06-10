@@ -10,3 +10,8 @@ body {
   position: relative;
   width: 50vw;
 }
+
+.input span {
+  position: absolute;
+  margin-left: 10px;
+}
