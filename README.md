@@ -12,7 +12,7 @@ Visit the site to see use the application. Drag the sliders to adjust the parame
 
 ## How It's Made
 
-This uses the [SIR Model API](https://sir-epimodel-api.herokuapp.com/). Tech used: HTML, CSS, JavaScript. Favicon: <a target="_blank" href="https://www.flaticon.com/free-icons/shapes" title="shapes icons">Freepik - Flaticon</a>
+This uses the [SIR Model API](https://sir-epimodel-api.herokuapp.com/). Tech used: HTML, CSS, JavaScript, Chart.js. Favicon: <a target="_blank" href="https://www.flaticon.com/free-icons/shapes" title="shapes icons">Freepik - Flaticon</a>
 
 ## Future Improvements
 
