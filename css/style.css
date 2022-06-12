@@ -1,17 +1,108 @@
-body {
+body, html {
+  height: 100%;
+  /* min-height: 100vh; */
+}
+.flex {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   gap: 2rem;
 }
 
+.title {
+  background: #f8eedb;
+  padding: 2rem 0;
+}
+  .title .icons {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    padding-left: 0;
+  }
+    .title .icons a {
+      text-decoration: none;
+      color: black;
+      transition: all 0.2s ease-in;
+    }
+      .title a:hover{
+        color: rgb(120, 115, 115);
+      }
+    .title .icons .label {
+      text-decoration: none;
+      display: none;
+    }
+  .title p a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s ease-in;
+    text-decoration: underline;
+  }
+  .title .note {
+    color: rgb(114, 10, 10);
+  }
+
+.simulator {
+  padding: 2rem 0;
+  background: #fdfafa;
+}
 .chart {
+  width: 70%;
   position: relative;
-  width: 50vw;
 }
 
-.input span {
-  position: absolute;
-  margin-left: 10px;
+.input {
+  width: 30%;
+}
+
+  .input span {
+    position: absolute;
+    margin-left: 10px;
+  }
+
+footer {
+  background: #f8eedb;
+  text-align: center;
+  padding: 2rem 0;
+}  
+  footer .icons {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    padding-left: 0;
+    justify-content: center;
+  }
+    footer .icons a {
+      text-decoration: none;
+      color: black;
+      transition: all 0.2s ease-in;
+    }
+      footer a:hover{
+        color: rgb(120, 115, 115);
+      }
+    footer .icons .label {
+      text-decoration: none;
+      display: none;
+    }
+  footer a {
+    text-decoration: none;
+    color: black;
+    text-decoration: underline;
+    transition: all 0.2s ease-in;
+  }
+
+    footer a:hover {
+      color: rgb(120, 115, 115);
+    }
+
+@media screen and (max-width: 991px) {
+  .flex {
+    flex-direction: column;
+  }
+  .chart {
+    width: 100%;
+    order: -1;
+  }
+  .input {
+    width: 100%;
+  }
 }

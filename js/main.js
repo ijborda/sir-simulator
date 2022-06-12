@@ -30,33 +30,6 @@ function showVal() {
     document.querySelector('#gammaVal').innerHTML = gamma;
 }
 
-// function logVal() {
-//   const sus = document.querySelector('#susceptible').value;
-//   const inf = document.querySelector('#infected').value;
-//   const rec = document.querySelector('#recovered').value;
-//   const time = document.querySelector('#time').value;
-//   const beta = document.querySelector('#beta').value;
-//   const gamma = document.querySelector('#gamma').value;
-//   const params = [sus, inf, rec, time, beta, gamma];
-//   plotSIR(params);
-// }
-
-// async function updatePlotSIR() {
-//   const sus = document.querySelector('#susceptible').value;
-//   const inf = document.querySelector('#infected').value;
-//   const rec = document.querySelector('#recovered').value;
-//   const time = document.querySelector('#time').value;
-//   const beta = document.querySelector('#beta').value;
-//   const gamma = document.querySelector('#gamma').value;
-
-//   const url = `https://sir-epimodel-api.herokuapp.com/api/sir?s=${sus}&i=${inf}&r=${rec}&b=${beta}&g=${gamma}&t=${time}`;
-//   const res = await fetch(url);
-//   const sir = await res.json();
-
-//   myLineChart.data.datasets[0].data[2] = 50; // Would update the first dataset's value of 'March' to be 50
-//   myLineChart.update();
-// }
-
 async function plotSIR() {
 
   if (!isInit) {
@@ -71,9 +44,7 @@ async function plotSIR() {
   const time = document.querySelector('#time').value;
   const beta = document.querySelector('#beta').value;
   const gamma = document.querySelector('#gamma').value;
-  // const params = [sus, inf, rec, time, beta, gamma];
-  // console.log(params)
-  // Fetch data
+
   const url = `https://sir-epimodel-api.herokuapp.com/api/sir?s=${sus}&i=${inf}&r=${rec}&b=${beta}&g=${gamma}&t=${time}`;
   const res = await fetch(url);
   const sir = await res.json();
